@@ -1,0 +1,514 @@
+:root{
+  color-scheme:light;
+  --bg:#f7f7f5;
+  --ink:#202124;
+  --muted:#62666e;
+  --line:#dcdedc;
+  --surface:#eeefec;
+  --accent:#304ed2
+}
+html[data-theme=dark]{
+  color-scheme:dark;
+  --bg:#202124;
+  --ink:#f2f2ef;
+  --muted:#b3b7c0;
+  --line:#41434a;
+  --surface:#2b2d32;
+  --accent:#a9baff
+}
+*{
+  box-sizing:border-box
+}
+html{
+  scroll-behavior:smooth
+}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  line-height:1.7;
+  word-break:keep-all;
+  overflow-wrap:anywhere
+}
+a{
+  color:inherit;
+  text-decoration:none
+}
+button{
+  font:inherit;
+  color:inherit;
+  background:transparent;
+  cursor:pointer
+}
+button,.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:11px 16px;
+  min-height:48px;
+  font-size:14px;
+  line-height:1.6;
+  width:fit-content
+}
+button:hover:not(:disabled),.button:hover{
+  border-color:var(--ink);
+  background:var(--surface)
+}
+a:focus-visible,button:focus-visible,summary:focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:5px
+}
+button:disabled{
+  cursor:default;
+  color:var(--muted)
+}
+.wrap{
+  width:min(1144px,calc(100% - 96px));
+  margin:auto
+}
+.header{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  padding-block:24px;
+  position:relative
+}
+.brand{
+  font-size:20px;
+  font-weight:600;
+  margin-right:auto
+}
+.brand small{
+  font-size:12px;
+  font-weight:400;
+  color:var(--muted);
+  margin-left:8px
+}
+#navigation{
+  display:flex;
+  gap:28px;
+  align-items:center
+}
+#navigation a{
+  font-size:14px;
+  padding:12px 0
+}
+#navigation a[aria-current=page]{
+  text-decoration:underline;
+  text-underline-offset:7px
+}
+.controls{
+  display:flex;
+  gap:8px
+}
+#menu{
+  display:none
+}
+main{
+  padding-block:78px 64px;
+  min-height:70vh
+}
+main>*+*{
+  margin-top:48px
+}
+h1,h2,h3,p{
+  margin:0
+}
+h1{
+  font-size:48px;
+  line-height:1.35;
+  letter-spacing:-.045em;
+  font-weight:700
+}
+h2{
+  font-size:24px;
+  line-height:1.5;
+  letter-spacing:-.025em
+}
+h3{
+  font-size:19px;
+  line-height:1.5;
+  font-weight:500
+}
+.eyebrow{
+  font-size:12px;
+  letter-spacing:.08em;
+  color:var(--muted);
+  margin-bottom:20px
+}
+.muted,.meta{
+  color:var(--muted)
+}
+.meta{
+  font-size:14px;
+  margin-top:8px
+}
+.hero{
+  display:grid;
+  grid-template-columns:minmax(0,724fr) minmax(0,372fr);
+  gap:48px;
+  align-items:end
+}
+.hero h1{
+  font-size:56px
+}
+.hero .button{
+  margin-top:24px
+}
+.divider{
+  height:1px;
+  background:var(--line);
+  border:0
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:36px 28px
+}
+.card{
+  display:block
+}
+.card .visual{
+  margin-bottom:16px
+}
+.visual{
+  aspect-ratio:16/9;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--surface);
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  color:var(--muted);
+  text-align:center
+}
+.visual img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#1f1f21
+}
+.visual span{
+  font-size:12px;
+  letter-spacing:.12em;
+  padding:20px
+}
+.card:hover h3{
+  text-decoration:underline;
+  text-underline-offset:5px
+}
+.card:hover .visual{
+  border-color:var(--muted)
+}
+.row{
+  display:grid;
+  grid-template-columns:190px minmax(0,760px);
+  gap:24px
+}
+.row h2{
+  font-size:18px
+}
+.stack>*+*{
+  margin-top:16px
+}
+.filters,.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px
+}
+.filters button[aria-pressed=true]{
+  background:var(--ink);
+  color:var(--bg);
+  border-color:var(--ink)
+}
+.results{
+  margin-top:24px
+}
+.profile{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:48px
+}
+.photo{
+  aspect-ratio:4/5;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:12px
+}
+.document{
+  display:flex;
+  gap:28px;
+  align-items:center
+}
+.cover{
+  width:148px;
+  aspect-ratio:148/196;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:12px;
+  flex-shrink:0
+}
+.document .button,.document button{
+  margin-top:16px
+}
+.facts{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:24px
+}
+.facts dt{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:8px
+}
+.facts dd{
+  margin:0;
+  font-size:14px
+}
+.detail-head>*+*{
+  margin-top:20px
+}
+.video-slot{
+  aspect-ratio:16/9;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--surface);
+  color:var(--muted);
+  text-align:center;
+  padding:24px
+}
+.other{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap
+}
+footer{
+  border-top:1px solid var(--line)
+}
+.footer{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  padding-block:32px;
+  font-size:14px
+}
+.footer span:first-child{
+  flex:1.3
+}
+.footer span:nth-child(2){
+  flex:1
+}
+.footer .button{
+  flex-shrink:0
+}
+.skip{
+  position:fixed;
+  top:-100px;
+  left:16px;
+  z-index:10;
+  padding:12px;
+  background:var(--bg);
+  border:2px solid var(--accent)
+}
+.skip:focus{
+  top:12px
+}
+.email{
+  font-size:20px;
+  overflow-wrap:anywhere
+}
+#copy-status{
+  min-height:1.7em;
+  font-size:14px;
+  color:var(--muted)
+}
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0
+}
+@media(max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+    gap:28px
+  }
+  .hero h1{
+    font-size:46px
+  }
+  .profile{
+    grid-template-columns:240px 1fr;
+    gap:28px
+  }
+  .row{
+    grid-template-columns:150px 1fr
+  }
+  .facts{
+    grid-template-columns:repeat(2,1fr)
+  }
+}
+@media(max-width:600px){
+  .wrap{
+    width:calc(100% - 44px)
+  }
+  .header{
+    padding-block:16px;
+    gap:12px
+  }
+  .brand{
+    font-size:16px
+  }
+  .brand small{
+    margin-left:4px
+  }
+  #menu{
+    display:inline-flex
+  }
+  #navigation{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:16px;
+    z-index:5;
+    flex-direction:column;
+    align-items:stretch;
+    gap:4px
+  }
+  #navigation.open{
+    display:flex
+  }
+  #navigation a{
+    padding:12px
+  }
+  main{
+    padding-top:48px
+  }
+  main>*+*{
+    margin-top:32px
+  }
+  h1,.hero h1{
+    font-size:32px
+  }
+  .hero{
+    gap:24px
+  }
+  .grid{
+    grid-template-columns:1fr;
+    gap:28px
+  }
+  .row,.profile{
+    grid-template-columns:1fr;
+    gap:20px
+  }
+  .profile .photo{
+    width:100%;
+    max-width:320px
+  }
+  .document{
+    align-items:flex-start;
+    gap:20px
+  }
+  .cover{
+    width:100px
+  }
+  .facts{
+    gap:20px
+  }
+  .footer{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+    padding-block:24px
+  }
+  .filters{
+    gap:8px
+  }
+  .filters button{
+    padding:10px 13px
+  }
+  .email{
+    font-size:18px
+  }
+  .other{
+    justify-content:flex-start
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html{
+    scroll-behavior:auto
+  }
+}
+/* HOME: 구분선과 섹션 제목의 간격을 명시하고 제목을 카드와 묶습니다. */
+main > .home-work-heading {
+  margin-top:48px;
+}
+main > .home-work-heading + .grid {
+  margin-top:24px;
+}
+@media (max-width:600px) {
+  main > .home-work-heading {
+    margin-top:32px;
+  }
+  main > .home-work-heading + .grid {
+    margin-top:20px;
+  }
+}
+/* Figma 대조 후 공통 색과 영상 비율을 보완합니다. */
+.eyebrow,#navigation a[aria-current=page]{
+  color:var(--accent)
+}
+.hero{
+  align-items:start
+}
+video{
+  display:block;
+  width:100%;
+  max-width:100%;
+  aspect-ratio:16/9;
+  object-fit:contain;
+  background:#1f1f21;
+  border-radius:12px
+}
+
+/* 자료를 넣어도 기존 사진·문서 자리의 크기는 유지합니다. */
+.photo,.cover{
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  color:var(--muted);
+  text-align:center;
+}
+.photo span,.cover span{
+  padding:16px;
+  font-size:14px;
+}
+.photo img,.cover img{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:0;
+  object-fit:contain;
+}
+
+/* 홈 대표작으로 이동했을 때 제목 위 여백을 확보합니다. */
+#featured-works{scroll-margin-top:24px;}
+
+/* YouTube: 모바일에서도 비율 유지, 자동 재생하지 않음 */
+.youtube-player{display:block;width:100%;aspect-ratio:16/9;min-height:200px;border:0;background:#111;border-radius:8px;}
