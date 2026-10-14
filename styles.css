@@ -305,6 +305,14 @@ footer{
 .footer span:nth-child(2){
   flex:1
 }
+.footer-credits{
+  padding-bottom:24px;
+  color:var(--muted);
+  line-height:1.7
+}
+.footer-credits small{
+  font-size:12px
+}
 .footer .button{
   flex-shrink:0
 }

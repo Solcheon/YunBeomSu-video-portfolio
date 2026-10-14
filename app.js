@@ -71,6 +71,8 @@ function contact() {
     ${divider}
     ${row('문의 시 함께 알려주세요', '<p class="meta">선택 사항</p><p><strong>채용</strong> · 회사명, 채용 직무, 채용 안내</p><p><strong>프로젝트</strong> · 작업 내용, 영상 길이·사용처, 일정, 예산, 참고 자료</p><p>정해진 내용부터 보내주시면 됩니다.</p>')}
     ${divider}
+    ${row('PORTFOLIO', '<p>작품 정보와 제작 경험을 노션에서도 확인할 수 있습니다.</p><a class="button" href="https://app.notion.com/p/3e9511525a5a80b8a1e5c59bf846711d?source=copy_link" target="_blank" rel="noopener noreferrer">노션 포트폴리오 보기 ↗<span class="sr-only"> (새 탭)</span></a>')}
+    ${divider}
     ${row('CONNECT', '<div class="actions"><a class="button" href="https://www.youtube.com/@Yongsa.Archive" target="_blank" rel="noopener noreferrer">솔천 · YouTube ↗<span class="sr-only"> (새 탭)</span></a><a class="button" href="https://www.instagram.com/ys.logs_/" target="_blank" rel="noopener noreferrer">Instagram · @ys.logs_ ↗<span class="sr-only"> (새 탭)</span></a></div>')}`;
 }
 function youtubeWatchUrl(value){
@@ -133,7 +135,14 @@ if(e.target.closest('[data-scroll-featured]')){
 }
 const filter=e.target.closest('[data-filter]');if(filter){const c=filter.dataset.filter;selectedCategory=c;main.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===filter)));const list=projects.filter(p=>c==='전체'||p.category===c);document.querySelector('#results').innerHTML=list.map(card).join('');document.querySelector('#result-count').textContent=`${c} ${list.length}개 작품`;}
 if(e.target.closest('#copy-email')){const status=document.querySelector('#copy-status');try{await navigator.clipboard.writeText(siteContent.email);status.textContent='이메일 주소를 복사했습니다.';}catch{status.textContent='자동 복사가 제한되어 있습니다. 위 이메일 주소를 직접 선택해 복사해주세요.';}}});
-document.querySelector('#skip-link').addEventListener('click',e=>{e.preventDefault();main.focus();main.scrollIntoView();});document.querySelector('#footer-contact').addEventListener('click',e=>{if(location.hash==='#/contact'){e.preventDefault();document.querySelector('#inquiry').focus({preventScroll:true});document.querySelector('#inquiry').scrollIntoView();}});
+document.querySelector('#skip-link').addEventListener('click',e=>{e.preventDefault();main.focus();main.scrollIntoView();});document.querySelector('#footer-contact').addEventListener('click',e=>{
+  const inquiry=document.querySelector('#inquiry');
+  if(inquiry){
+    e.preventDefault();
+    inquiry.focus({preventScroll:true});
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+});
 window.addEventListener('hashchange',()=>{route();main.focus({preventScroll:true});});route();
 
 // 모바일 메뉴 상태가 넓은 화면으로 전환한 뒤 남지 않도록 합니다.
